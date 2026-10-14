@@ -87,9 +87,13 @@ def delete_verified(items):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[2])
+    parser.add_argument("--root", type=Path, help="AutoDL project root; standalone scripts default to the current directory")
     parser.add_argument("--apply", action="store_true", help="Delete the verified eight derived caches")
     args = parser.parse_args(argv)
+    if args.root is None:
+        location = Path(__file__).resolve()
+        package = location.parent.parent
+        args.root = package.parent if location.parent.name == "tools" and (package / "b270_model.py").is_file() else Path.cwd()
     items = candidates(args.root)
     total = sum(stat.st_size for _, stat in items)
     print(f"Candidates: {len(items)}; logical size: {total / 2**30:.3f} GiB")
