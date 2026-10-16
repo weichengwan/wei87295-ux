@@ -1,0 +1,35 @@
+{
+  "paper_title": "Broadcast-Gated Attention With Identity Adaptive Integration for Efficient Image Super-Resolution",
+  "journal": "IEEE Transactions on Image Processing",
+  "year": 2026,
+  "volume": 35,
+  "pages": "1408-1422",
+  "doi": "10.1109/TIP.2026.3657640",
+  "first_publication_from_uploaded_PDF": "2026-01-29",
+  "paper_source": "User-uploaded15-page original PDF extracted; Section III-B Eqs.1-6 and relevant method sections inspected",
+  "official_code": "https://github.com/bbbolt/BGAI",
+  "official_commit": "d145de78022de0c3ce73582323348bc51f32da70",
+  "official_file": "basicsr/archs/BGAI_arch.py",
+  "official_file_sha256": "0979ffe4d37bb276ade764407d901f5880d810ef68f7d87ec1999e51a3c5681f",
+  "official_license": "MIT; notice included in third_party/BGAI_LICENSE.txt",
+  "borrowed": [
+    "router/local feature projections",
+    "large-window router attention",
+    "broadcast reset/update feature fusion gates",
+    "vertical/horizontal/square local attention pattern",
+    "depthwise local positional information"
+  ],
+  "adapted": [
+    "128-channel ADN Stage2 interface;14pixel router windows and7pixel local widths for28x28features",
+    "identity-initialized residual connection after complete ADN layer2, outside frozen native BN",
+    "LCBR alone: leave-centre-out local feature contrast conditions broadcast reset/update logits"
+  ],
+  "not_implemented_from_paper": [
+    "full BGAI super-resolution architecture",
+    "pixel-shuffle reconstruction",
+    "cross-layer IAAI attention reuse",
+    "the original super-resolution objective and pretraining"
+  ],
+  "claim_boundary": "A proposed radar feature adaptation that must earn its novelty through ablations, not a new invention of BGMSA. No Pd improvement or publication acceptance is guaranteed.",
+  "user_data_or_weights_redistributed": false
+}
