@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "tests": 4,
+  "scope": "inert real subprocesses; full launch flag, exact medium process replacement, B293/unrelated process preservation, existing-full idempotence, wait for completed training",
+  "real_AutoDL_run_executed": false,
+  "original_model_package_unchanged": true
+}
