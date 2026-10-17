@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-17",
+  "status": "CPU functional validation passed; no AutoDL radar performance measured",
+  "tests_total": 18,
+  "tests_passed": 17,
+  "tests_skipped": 1,
+  "skip_reason": "Local CUDA unavailable",
+  "executed_command": "python -m unittest discover -s tests -v",
+  "verified": [
+    "native8-SimAM ADN retained",
+    "same-weight B280 A1 original implementation versus new reference outputs: bitwise equal on CPU",
+    "original7x7 GAP classifier unchanged by token branch pooling",
+    "new tails exactly identity initialized and learn non-output parameters",
+    "frozen TFSE/ADN state unchanged during tail updates",
+    "single-CUT descriptor gain/phase invariance and zero safety",
+    "complementary graph filters and symmetric normalized adjacency",
+    "TRAIN Gini selection and constant-feature handling",
+    "both actual trained checkpoints selected with epoch>=1; no fallback",
+    "training interruption after last_epoch commit recovers best.pt",
+    "raw score interruption/resume agrees byte-for-byte with uninterrupted stream",
+    "same H1 complex64 quantization order as B280",
+    "CPU read-only source preflight exercises exact30k/5k metadata schema on synthetic sparse HDF5",
+    "paired synthetic report preserves baseline files and plots unaltered raw Pd",
+    "B293 process identification ignores zombies and PID reuse",
+    "shared GPU flock respects an existing owner",
+    "shell syntax"
+  ],
+  "not_executed": [
+    "CUDA optimizer validation",
+    "real B280 trained checkpoint replay on AutoDL",
+    "radar TRAIN/VAL fitting",
+    "actual medium/full Pd experiment",
+    "live B293 queue on user server"
+  ],
+  "native_parity_probe": {
+    "same_random_B280_A1_state": true,
+    "maxabs_reference_logit_difference": 0.0,
+    "maxabs_tail_extraction_logit_difference": 0.0,
+    "CPU_only": true
+  },
+  "synthetic_test_metrics_are_not_experimental_results": true
+}
