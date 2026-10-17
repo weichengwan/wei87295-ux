@@ -1,0 +1,24 @@
+{
+  "status": "PASS_FIX1_CPU_RECOVERY_REGRESSIONS",
+  "tests_run": 9,
+  "passed": 8,
+  "skipped": 1,
+  "failed": 0,
+  "elapsed_s": 36.589,
+  "skipped_test": "CUDA preflight regression: no CUDA device in local build environment",
+  "defect": "snapshot(guide) creates CPU tensors but original check compared directly to CUDA live state",
+  "repair": "Take an after snapshot and compare both CPU snapshots; retain positive-update assertion",
+  "old_source_sha256": "8bac1e156e03ed550920fd0722378aa20b171ccd9f9543348be182f565487bf8",
+  "new_source_sha256": "159f8cc1857aebb33d51cba45d7042ba7e2a1bc5880cbf5c039e5d62c19ae373",
+  "coverage": [
+    "pretrained model/loss unchanged",
+    "cache bytes preserved",
+    "only pretraining root manifest code SHA migrates",
+    "trained and unrelated-source-change runs rejected",
+    "partial-patch recovery and idempotence",
+    "existing full CPU model/training/score regression"
+  ],
+  "real_AutoDL_training_or_Pd_rerun": false,
+  "real_CUDA_test_executed": false,
+  "user_failure_stage": "after complete TRAIN-only H0 pool, before preflight record or formal training"
+}
